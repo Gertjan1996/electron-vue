@@ -1,15 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <button @click="test()">IPCrender test</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import isElectron from 'is-electron';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  methods: {
+    test() {
+      console.log("Electron?")
+      if (isElectron()) {
+        console.log("Ja, Electron!")
+
+        console.log(window.ipcRenderer);
+      }
+    }
   }
 }
 </script>
